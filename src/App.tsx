@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Details from "./Components/Details";
+import Employments from "./Components/Employments";
+import Educations from "./Components/Educations";
+import Skills from "./Components/Skills";
+import Template from "./Templates/Default";
+import Links from "./Components/Links";
+import Languages from "./Components/Languages";
+import StickyHeader from "./Components/StickyHeader";
+import Footer from "./Components/Footer";
 
-function App() {
+function App(props: any) {
+  const template = {
+    defaultTemplate: Template,
+  };
+  const Temp = template["defaultTemplate"];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      <div className="App">
+        <div className="input">
+          <StickyHeader />
+          <Details />
+          <Employments />
+          <Educations />
+          <Skills />
+          <Links />
+          <Languages />
+          <Footer />
+        </div>
+      </div>
+      <div className="output">
+        <Temp />
+      </div>
     </div>
   );
 }

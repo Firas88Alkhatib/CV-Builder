@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+.item {
+  flex: calc(50% - 10px);
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+
+.item > label > span {
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.App * input {
+  border-radius: 3px;
+  padding: 11px 16px;
+  display: block;
+  caret-color: rgb(33, 150, 243);
+  background-color: rgb(242, 245, 250);
+  outline: none;
+  border: 0px;
+  color: rgb(38, 43, 51);
+  pointer-events: unset;
+  width: calc(100% - 40px);
+  margin-right: 20px;
+  transition: color 0.1s ease 0s;
+}
+
+.text-field textarea {
+  border-radius: 3px;
+  padding: 11px 16px;
+  display: block;
+  caret-color: rgb(33, 150, 243);
+  background-color: rgb(242, 245, 250);
+  outline: none;
+  border: 0px;
+  color: rgb(38, 43, 51);
+  pointer-events: unset;
+  width: calc(100% - 40px);
+  margin-right: 20px;
+  transition: color 0.1s ease 0s;
+  height: 250px;
+  resize: none;
+}
+.text-field {
+  width: 100%;
+}
+
+.add-link {
+  display: flex;
+  font-size: 16px;
+  padding: 6px 14px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 90%;
+  border-radius: 4px;
+  color: rgb(33, 150, 243);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease 0s;
+}
+.add-link:hover {
+  background-color: rgba(230, 244, 255, 0.5);
+}
+.add-link polygon {
+  fill: rgb(33, 150, 243);
+}
+
+.start-end-container {
+  width: 50%;
+}
+.time-item {
+  flex: 50%;
+}
+.dates {
+  display: flex;
+  flex-direction: row;
+}
+
+.break-line {
+  height: 1px;
+  background: rgb(33, 150, 243);
+  width: 85%;
+  margin: auto;
+  margin-top: 15px;
+}
+.startend-label {
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.remove-link {
+  display: flex;
+  font-size: 16px;
+  padding: 6px 14px;
+  margin: 20px 20px 0px;
+  width: 90%;
+  border-radius: 4px;
+  color: rgb(33, 150, 243);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease 0s;
+}
+.remove-link:hover {
+  background-color: #ffe6e5;
+}
+.remove-link polygon {
+  fill: rgb(255, 102, 102);
+}
+
+.section {
+  border: 2px solid #f2f5fa;
+  padding: 10px;
+}
+
+.sticky-header {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #fff;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  text-align: center;
+  color: rgb(14, 110, 58);
+}
+.sticky-header-line {
+  height: 3px;
+  /* background: rgb(33, 150, 243); */
+  background: rgb(37, 184, 105);
+  width: 85%;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 50px;
+}
+.react-datepicker__input-container {
+  position: initial !important;
+}
+.css-chtgcy-container {
+  z-index: 1;
+}

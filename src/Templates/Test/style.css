@@ -1,0 +1,35 @@
+.test {
+  color: #10365c;
+}
+
+.template-personal-details {
+  flex: 30%;
+  background-color: #084c41;
+  color: antiquewhite;
+  padding: 30px;
+}
+.template-history-infos {
+  flex: 70%;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.template-employment-item-startDate {
+  margin: 0 7px;
+}
+.template-employment-item-endDate {
+  margin: 0 7px;
+}
+.level-bar {
+  border: 1px solid #ccc !important;
+  width: 70%;
+}
+.level-bar-inner {
+  height: 10px;
+  color: #000 !important;
+  background-color: #9e9e9e !important;
+}
+.inputs {
+  border: 1px solid black;
+  width: 43vw;
+}
