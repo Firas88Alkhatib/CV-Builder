@@ -1,6 +1,6 @@
 # CV Builder using React and Redux
 You can see live version by visiting the link:
-[https://cv-builder-e8a8f.web.app/](cv-builder-e8a8f.web.app)
+[cv-builder-e8a8f.web.app](https://cv-builder-e8a8f.web.app/)
 
 ## Available Scripts
 
