@@ -29,7 +29,7 @@ const Level = ({ actionType, cid, options, onChange }: LevelProps) => {
       <span>Level</span>
       <br />
       <div className="select item">
-        <Select options={op} styles={styles} onChange={onChange && onChange(cid, actionType, options)} />
+        <Select isSearchable={ false } options={op} styles={styles} onChange={onChange && onChange(cid, actionType, options)} />
       </div>
     </div>
   );

@@ -1,8 +1,3 @@
-const actionCreator = (actiontype: string, payload: any) => ()=> {
-  return {  type: actiontype,
-    payload,}
-};
-
 const actions = {
   ADD_EMPLOYMENT: "ADD_EMPLOYMENT",
   ADD_EDUCATION: "ADD_EDUCATION",
@@ -20,6 +15,8 @@ const actions = {
   UPDATE_SKILL: "UPDATE_SKILL",
   UPDATE_LINK: "UPDATE_LINK",
   UPDATE_LANGUAGE: "UPDATE_LANGUAGE",
-  UPDATE_TEMPLATE_VALUES: " UPDATE_TEMPLATE_VALUES",
+  UPDATE_TEMPLATE_VALUES: "UPDATE_TEMPLATE_VALUES",
+  UPDATE_PREVIEW_MODE: "UPDATE_PREVIEW_MODE",
+
 };
 export default actions;

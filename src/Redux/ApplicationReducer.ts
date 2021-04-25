@@ -72,9 +72,6 @@ const reducer = (state: ApplicationState, action: AnyAction) =>
           ...draft.skills[index],
           ...action.payload.value,
         };
-        // draft.skills[index].value = action.payload.value.level
-        //   ? Object.values(SkillLevel).indexOf(action.payload.value.level) + 1
-        //   : draft.skills[index].value;
         return draft;
       }
       case actions.UPDATE_LANGUAGE: {
@@ -115,6 +112,10 @@ const reducer = (state: ApplicationState, action: AnyAction) =>
       }
       case actions.UPDATE_TEMPLATE_VALUES: {
         draft.templateValues = { ...draft.templateValues, ...action.payload };
+        return draft;
+      }
+      case actions.UPDATE_PREVIEW_MODE:{
+        draft.previewMode = action.payload.value;
         return draft;
       }
     }

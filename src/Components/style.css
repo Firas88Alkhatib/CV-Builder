@@ -28,6 +28,9 @@
   margin-right: 20px;
   transition: color 0.1s ease 0s;
 }
+.input-field-label{
+  color: rgb(125,125,125);
+}
 
 .text-field textarea {
   border-radius: 3px;
@@ -47,6 +50,9 @@
 }
 .text-field {
   width: 100%;
+}
+.text-field span {
+  color: rgb(125,125,125);
 }
 
 .add-link {
@@ -91,6 +97,7 @@
 .startend-label {
   margin-bottom: 5px;
   display: inline-block;
+  color: rgb(125,125,125);
 }
 
 .remove-link {
@@ -143,4 +150,32 @@
 }
 .css-chtgcy-container {
   z-index: 1;
+}
+ .button {
+  background-color: rgb(33, 150, 243);
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+ }
+
+.button span{
+  font-size: 20px;
+  color: white;
+}
+
+.preview-mode-header{
+  background-color: rgb(33, 150, 243);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.preview-mode-header span {
+ margin-left: 50px; 
+ font-size: 20px;
+ color: white
 }

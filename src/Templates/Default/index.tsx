@@ -13,7 +13,6 @@ const styles = {
 };
 const Viewer = ({ state, onChange }: { onChange: any; state: ApplicationState }) => {
   const color = state.templateValues?.color || colors[0];
-  console.log(color);
   return (
     <div className="template-view" style={styles.templateView}>
       <div className="colors" style={styles.colorsView}>

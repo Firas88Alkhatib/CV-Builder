@@ -20,7 +20,7 @@ const InputField = ({ cid, label, name, onChange, value ,action }: InputFieldPro
   return (
     <div className="input-field item">
       <label>
-        <span>{label}</span>
+        <span className="input-field-label">{label}</span>
         <br />
         <input value={value} name={name} onChange={onChange && onChange(action, cid, name)}></input>
       </label>

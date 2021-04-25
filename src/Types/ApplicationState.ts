@@ -16,7 +16,9 @@ class ApplicationState {
     employmentHistory: EmploymentHistory[],
     skills: Skill[],
     links: Link[],
-    languages: Language[]
+    languages: Language[],
+    previewMode: boolean = false,
+    currentTemplate: string = "Default"
   ) {
     this.personalDetails = personalDetails;
     this.educations = educations;
@@ -24,6 +26,8 @@ class ApplicationState {
     this.skills = skills;
     this.links = links;
     this.languages = languages;
+    this.previewMode = previewMode;
+    this.currentTemplate = currentTemplate
   }
   [immerable] = true;
   personalDetails: PersonalDetails;
@@ -33,5 +37,7 @@ class ApplicationState {
   links: Link[];
   languages: Language[];
   templateValues: any;
+  previewMode: boolean;
+  currentTemplate: string
 }
 export default ApplicationState;

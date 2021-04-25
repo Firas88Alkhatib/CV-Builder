@@ -10,7 +10,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.App {
+html, body {
+  height: 100%;
+}
+
+.edit-container {
   display: flex;
   flex-direction: row;
 }
@@ -23,10 +27,40 @@ code {
 .output {
   width: calc(55vw - 40px);
   margin: 5px 5px 5px 20px;
-  /* background-color: rgb(122, 133, 153); */
   border-left: 1px solid rgb(33, 150, 243);
   position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
+}
+
+.footer-preview {
+  display: none;
+  justify-content: center;
+  margin: 25px;
+}   
+
+@media only screen and (max-width: 800px) {
+.footer-preview {
+  display: flex;
+}
+.output {
+  display: none;
+}
+.input {
+  width: 100%;
+}
+}
+
+#root{
+  height: inherit;
+}
+.App{
+  height: inherit;
+}
+.preview-mode{
+  height: inherit;
+}
+.preview-mode-template-container{
+  height: calc(100% - 50px);
 }
