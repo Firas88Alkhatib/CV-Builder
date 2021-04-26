@@ -12,8 +12,9 @@ interface LevelProps {
   cid: number;
   options: typeof LangLevel | typeof SkillLevel;
   actionType: string;
+  value?: string
 }
-const Level = ({ actionType, cid, options, onChange }: LevelProps) => {
+const Level = ({ value,actionType, cid, options, onChange }: LevelProps) => {
   const op = Object.values(options).map((item) => ({ value: item, label: item }));
   const styles = {
     control: (provided: any) => {
@@ -29,7 +30,7 @@ const Level = ({ actionType, cid, options, onChange }: LevelProps) => {
       <span>Level</span>
       <br />
       <div className="select item">
-        <Select isSearchable={ false } options={op} styles={styles} onChange={onChange && onChange(cid, actionType, options)} />
+        <Select  defaultValue={{ label: value, value}} isSearchable={ false } options={op} styles={styles} onChange={onChange && onChange(cid, actionType, options)} />
       </div>
     </div>
   );

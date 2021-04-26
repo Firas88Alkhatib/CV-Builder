@@ -10,15 +10,16 @@ interface TextFieldProps {
   onChange?: Function;
   actionType: string;
   cid?: number;
+  value? :string
 }
 
-const TextField = ({ cid, label, actionType, name, onChange }: TextFieldProps) => {
+const TextField = ({value, cid, label, actionType, name, onChange }: TextFieldProps) => {
   return (
     <div className="text-field">
       <label>
         <span>{label}</span>
         <br />
-        <textarea name={name} onChange={onChange && onChange(actionType, cid, name)}></textarea>
+        <textarea defaultValue={value} name={name} onChange={onChange && onChange(actionType, cid, name)}></textarea>
       </label>
     </div>
   );

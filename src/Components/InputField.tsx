@@ -22,7 +22,7 @@ const InputField = ({ cid, label, name, onChange, value ,action }: InputFieldPro
       <label>
         <span className="input-field-label">{label}</span>
         <br />
-        <input value={value} name={name} onChange={onChange && onChange(action, cid, name)}></input>
+        <input defaultValue={value} name={name} onChange={onChange && onChange(action, cid, name)}></input>
       </label>
     </div>
   );

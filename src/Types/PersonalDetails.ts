@@ -9,7 +9,7 @@ class PersonalDetails {
   city: string = "";
   address: string = "";
   postalCode: string = "";
-  dateOfBirth: Date | null = null;
+  dateOfBirth: string = "";
   phoneNumber: string = "";
   email: string = "";
   about: string = "";
