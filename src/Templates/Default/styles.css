@@ -1,0 +1,8 @@
+.default-template-mobile-view a {
+    text-decoration: none;
+  }
+  
+  .default-template-mobile-view-button {
+    width: 50%;
+    margin: 30px auto;
+  }

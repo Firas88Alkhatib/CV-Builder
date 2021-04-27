@@ -13,30 +13,30 @@ import { connect } from "react-redux";
 import ApplicationState from "./Types/ApplicationState";
 
 
-function App({state}:{state:ApplicationState}) {
-  const CurrentTemplate = Templates[state.currentTemplate as keyof  typeof Templates];
+function App({ state }: { state: ApplicationState }) {
+  const CurrentTemplate = Templates[state.currentTemplate as keyof typeof Templates];
   const previewMode = state.previewMode
   return (
     <div className="App">
-      {previewMode ? <PreviewMode /> : 
-      <div className="edit-mode">
-        <div className="edit-container">
-          <div className="input">
-            <StickyHeader />
-            <Details />
-            <Employments />
-            <Educations />
-            <Skills />
-            <Links />
-            <Languages />
-            <FooterPreview />
-            <Footer />
+      {previewMode ? <PreviewMode /> :
+        <div className="edit-mode">
+          <div className="edit-container">
+            <div className="input">
+              <StickyHeader />
+              <Details />
+              <Employments />
+              <Educations />
+              <Skills />
+              <Links />
+              <Languages />
+              <FooterPreview />
+              <Footer />
+            </div>
           </div>
-        </div>
-        <div className="output">
-          <CurrentTemplate />
-        </div> 
-      </div>}
+          <div className="output">
+            <CurrentTemplate />
+          </div>
+        </div>}
     </div>
   );
 }

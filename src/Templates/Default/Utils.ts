@@ -9,8 +9,7 @@ export const getPeriod = (monthCount: number) => {
   const years = { one: "year", other: "years" },
     m = monthCount % 12,
     y = Math.floor(monthCount / 12),
-    result = [];
-
+    result:string[] = []
   y && result.push(y + " " + getPlural(y, years));
   m && result.push(m + " " + getPlural(m, months));
   return result.join(" ");

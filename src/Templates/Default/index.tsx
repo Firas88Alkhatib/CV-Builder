@@ -5,30 +5,68 @@ import ApplicationState from "../../Types/ApplicationState";
 import PDFTemplate from "./PDFTemplate";
 import { AnyAction, Dispatch } from "redux";
 import actions from "../../Redux/Actions";
+import { BlobProvider, PDFDownloadLink } from '@react-pdf/renderer';
+import { Document, Page } from 'react-pdf/dist/umd/entry.webpack';
+import { useState } from "react";
+import Button from "../../Components/Button"
+import "./styles.css"
 
 const colors = ["#10365C", "#084C41", "#87300D", "#3E1D53", "#242935", "#e81a4a"];
 const styles = {
-  templateView: { height: "100%", display: "flex", FlexDirection: "row" },
-  colorsView: { flex: 1, margin: 10 },
+  templateView: { justifyContent: "center", height: "100%", display: "flex", FlexDirection: "row" },
+  colorsView: { width: "4%", margin: 10 },
+  mobileView: { width: "95%", margin: 10, padding: 5, },
+  pageView: { boxShadow: "0px -2px 29px -15px rgba(0,0,0,0.75)", marginBottom: 10 },
 };
-const Viewer = ({ state, onChange }: { onChange: any; state: ApplicationState }) => {
+
+const Viewer = ({ isMobileView, state, onChange }: { isMobileView?: boolean, onChange: any; state: ApplicationState }) => {
+  const [numPages, setNumPages] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
+    setNumPages(numPages);
+  }
   const color = state.templateValues?.color || colors[0];
-  return (
-    <div className="template-view" style={styles.templateView}>
-      <div className="colors" style={styles.colorsView}>
-        <CirclePicker
-          color={color}
-          colors={colors}
-          width={"25px"}
-          styles={{ default: { card: { marginRight: 1 } } }}
-          onChangeComplete={onChange}
-        />
-      </div>
-      <PDFViewer className="pdfviewer" style={{ alignSelf: "stretch", flex: 100, border: 0 }}>
-        <PDFTemplate state={state} color={color} />
-      </PDFViewer>
+  const mobileView =
+    <div className="default-template-mobile-view" style={styles.mobileView}>
+      <BlobProvider document={<PDFTemplate state={state} color={color} />}>
+        {({ url, loading }: { url: any, loading: boolean }) => {
+          return loading ? <div>loading</div> :
+            <div className="preview-mode-pages">
+              <Document file={url} renderMode="canvas" onLoadSuccess={onDocumentLoadSuccess} >
+                {[...Array(numPages)].map((_, index) =>
+                  <div style={styles.pageView}><Page scale={0.58} pageNumber={index + 1} /></div>
+                )}
+              </Document>
+            </div>
+        }}
+      </BlobProvider >
+      <PDFDownloadLink document={<PDFTemplate state={state} color={color} />} fileName="MyCV.pdf">
+        {({ blob, url, loading, error }) =>
+          loading ? 'Loading document...' :
+            <div className="default-template-mobile-view-button">
+              <Button label="Donwload" />
+            </div>
+        }
+      </PDFDownloadLink>
     </div>
-  );
+
+  const normalView =
+    <PDFViewer className="pdfviewer" style={{ alignSelf: "stretch", flex: 100, border: 0 }}>
+      <PDFTemplate state={state} color={color} />
+    </PDFViewer>
+  return <div className="template-view" style={styles.templateView}>
+    <div className="colors" style={styles.colorsView}>
+      <CirclePicker
+        color={color}
+        colors={colors}
+        width={"25px"}
+        styles={{ default: { card: { marginRight: 1 } } }}
+        onChangeComplete={onChange}
+      />
+    </div>
+    {isMobileView ? mobileView : normalView}
+  </div>
+
 };
 
 const mapStateToProps = (state: any) => {
