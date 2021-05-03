@@ -3,6 +3,7 @@ import ApplicationState from "../Types/ApplicationState";
 import AddLink from "./AddLink";
 import Employment from "./Employment";
 import actions from "../Redux/Actions";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 const Employments = ({ state }: { state: ApplicationState }) => {
   return (
@@ -19,10 +20,6 @@ const Employments = ({ state }: { state: ApplicationState }) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Employments);

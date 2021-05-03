@@ -4,6 +4,7 @@ import { AnyAction } from "redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ApplicationState from "../Types/ApplicationState";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface StartEndProps {
   state: ApplicationState;
@@ -41,10 +42,6 @@ const StartEnd = ({ actionType, startDate, endDate, cid, onChange }: StartEndPro
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {

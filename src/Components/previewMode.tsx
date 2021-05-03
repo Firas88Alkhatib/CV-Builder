@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { AnyAction, Dispatch } from "redux";
 import { updatePreviewModeAction } from "../Redux/Actions/UpdatePreviewModeAction.ts";
+import { mapStateToProps } from "../Redux/ReactRedux";
 import Templates from "../Templates"
 import ApplicationState from "../Types/ApplicationState";
 
@@ -15,9 +16,6 @@ const PreviewMode = ({ state, onClick }: { state: ApplicationState, onClick: any
     </div>
   </div>
 }
-const mapStateToProps = (state: any) => {
-  return { state };
-};
 
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {
   return {

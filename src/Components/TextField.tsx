@@ -2,6 +2,7 @@ import { Dispatch } from "react";
 import { connect } from "react-redux";
 import { AnyAction } from "redux";
 import { debounce } from "../Helpers/Util";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface TextFieldProps {
   inputType?: string;
@@ -10,10 +11,10 @@ interface TextFieldProps {
   onChange?: Function;
   actionType: string;
   cid?: number;
-  value? :string
+  value?: string
 }
 
-const TextField = ({value, cid, label, actionType, name, onChange }: TextFieldProps) => {
+const TextField = ({ value, cid, label, actionType, name, onChange }: TextFieldProps) => {
   return (
     <div className="text-field">
       <label>
@@ -23,10 +24,6 @@ const TextField = ({value, cid, label, actionType, name, onChange }: TextFieldPr
       </label>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {

@@ -1,6 +1,7 @@
 import { Dispatch } from "react";
 import { connect } from "react-redux";
 import { AnyAction } from "redux";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface AddLinkProps {
   label: string;
@@ -18,10 +19,6 @@ const AddLink = ({ actionType, label, onClick }: AddLinkProps) => {
       <span className="add-link-label">{label}</span>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {

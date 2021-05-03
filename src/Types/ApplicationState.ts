@@ -27,7 +27,7 @@ class ApplicationState {
     this.links = links;
     this.languages = languages;
     this.previewMode = previewMode;
-    this.currentTemplate = currentTemplate
+    this.currentTemplate = currentTemplate;
   }
   [immerable] = true;
   personalDetails: PersonalDetails;
@@ -38,6 +38,7 @@ class ApplicationState {
   languages: Language[];
   templateValues: any;
   previewMode: boolean;
-  currentTemplate: string
+  currentTemplate: string;
+  keepData: boolean = false;
 }
 export default ApplicationState;

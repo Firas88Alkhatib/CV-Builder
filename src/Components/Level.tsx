@@ -5,6 +5,7 @@ import ApplicationState from "../Types/ApplicationState";
 import { LangLevel } from "../Types/Language";
 import { SkillLevel } from "../Types/Skill";
 import Select from "react-select";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface LevelProps {
   onChange?: Function;
@@ -14,7 +15,7 @@ interface LevelProps {
   actionType: string;
   value?: string
 }
-const Level = ({ value,actionType, cid, options, onChange }: LevelProps) => {
+const Level = ({ value, actionType, cid, options, onChange }: LevelProps) => {
   const op = Object.values(options).map((item) => ({ value: item, label: item }));
   const styles = {
     control: (provided: any) => {
@@ -30,15 +31,12 @@ const Level = ({ value,actionType, cid, options, onChange }: LevelProps) => {
       <span>Level</span>
       <br />
       <div className="select item">
-        <Select  defaultValue={{ label: value, value}} isSearchable={ false } options={op} styles={styles} onChange={onChange && onChange(cid, actionType, options)} />
+        <Select defaultValue={{ label: value, value }} isSearchable={false} options={op} styles={styles} onChange={onChange && onChange(cid, actionType, options)} />
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return { state };
-};
 
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {
   return {

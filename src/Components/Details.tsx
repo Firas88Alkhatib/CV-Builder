@@ -1,13 +1,14 @@
 import { connect } from "react-redux";
 import actions from "../Redux/Actions";
 import { updatePersonalDetailsAction } from "../Redux/Actions/UpdatePersonalDetailsAction";
+import { mapStateToProps } from "../Redux/ReactRedux";
 import ApplicationState from "../Types/ApplicationState";
 import InputField from "./InputField";
 import "./style.css";
 
 import TextField from "./TextField";
 
-const Details = ({state}:{state:ApplicationState}) => {
+const Details = ({ state }: { state: ApplicationState }) => {
   return (
     <div>
       <h2>Personal Details</h2>
@@ -34,7 +35,5 @@ const Details = ({state}:{state:ApplicationState}) => {
     </div>
   );
 };
-const mapStateToProps = (state: ApplicationState) => {
-  return { state };
-};
+
 export default connect(mapStateToProps)(Details);

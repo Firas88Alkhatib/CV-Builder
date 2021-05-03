@@ -31,7 +31,7 @@ interface InfoSectionProps {
 const InfoSection = ({ subject, place, city, startDate, endDate, description }: InfoSectionProps) => {
   return (
     <View style={styles.section}>
-      <View break>
+      <View>
         <Text>{`${subject} ${place && "At"} ${place} ${city && "-"} ${city}`}</Text>
         <View style={styles.subHead} wrap>
           <Text>{(startDate || endDate) && expTime(startDate, endDate)}</Text>

@@ -8,8 +8,8 @@ import Link from "../Types/link";
 import Skill from "../Types/Skill";
 import actions from "./Actions";
 
-const reducer = (state: ApplicationState, action: AnyAction) =>
-  produce(state, (draft) => {
+const reducer = (state: ApplicationState, action: AnyAction) => {
+  const result = produce(state, (draft) => {
     switch (action.type) {
       case actions.ADD_EMPLOYMENT: {
         let emp = new EmploymentHistory();
@@ -114,11 +114,19 @@ const reducer = (state: ApplicationState, action: AnyAction) =>
         draft.templateValues = { ...draft.templateValues, ...action.payload };
         return draft;
       }
-      case actions.UPDATE_PREVIEW_MODE:{
+      case actions.UPDATE_PREVIEW_MODE: {
         draft.previewMode = action.payload.value;
+        return draft;
+      }
+      case actions.UPDATE_KEEPDATA: {
+        draft.keepData = action.payload.value;
+        !action.payload.value && localStorage.removeItem("applicationState");
         return draft;
       }
     }
   });
+  result.keepData && localStorage.setItem("applicationState", JSON.stringify(result));
+  return result;
+};
 
 export default reducer;

@@ -6,6 +6,7 @@ import StartEnd from "./StartEnd";
 import ApplicationState from "../Types/ApplicationState";
 import RemoveLink from "./RemoveLink";
 import { updateEducationAction } from "../Redux/Actions/UpdateEducationAction";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 
 
@@ -33,7 +34,4 @@ const Education = ({ cid, state }: EducationProps) => {
   );
 };
 
-const mapStateToProps = (state: ApplicationState) => {
-  return { state };
-};
 export default connect(mapStateToProps)(Education);

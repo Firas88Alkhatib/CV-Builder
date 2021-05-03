@@ -1,15 +1,16 @@
 import { connect } from "react-redux";
 import actions from "../Redux/Actions";
 import { updateLinkAction } from "../Redux/Actions/UpdateLinkAction";
+import { mapStateToProps } from "../Redux/ReactRedux";
 import ApplicationState from "../Types/ApplicationState";
 import InputField from "./InputField";
 import RemoveLink from "./RemoveLink";
 
 interface LinkProps {
   cid: number;
-  state:ApplicationState;
+  state: ApplicationState;
 }
-const Link = ({ state,cid }: LinkProps) => {
+const Link = ({ state, cid }: LinkProps) => {
   const link = state.links.find((item) => item.id === cid);
   return (
     <div className="link container">
@@ -19,10 +20,6 @@ const Link = ({ state,cid }: LinkProps) => {
       <div className="break-line"></div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Link);

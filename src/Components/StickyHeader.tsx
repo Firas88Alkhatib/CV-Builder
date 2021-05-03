@@ -1,7 +1,7 @@
 const StickyHeader = () => {
   return (
     <div className="sticky-header">
-      <span style={{ fontSize: 18 }}>CV Rakentaja</span>
+      <span style={{ fontSize: 18 }}>CV Builder</span>
       <div style={{ float: "left" }}>
         <img alt="Finland flag" style={{ objectFit: "cover", width: 25, height: 15 }} src="suomi.png" />
         <span style={{ marginLeft: 3 }}>Suomi</span>

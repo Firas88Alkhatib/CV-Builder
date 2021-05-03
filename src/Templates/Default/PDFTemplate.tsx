@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     marginBottom: 5,
     fontWeight: "bold",
-    // fontFamily: "noto-serif",
   },
 
   description: {

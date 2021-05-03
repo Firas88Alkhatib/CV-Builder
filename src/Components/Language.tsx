@@ -6,12 +6,13 @@ import { LangLevel } from "../Types/Language";
 import RemoveLink from "./RemoveLink";
 import { updateLanguageAction } from "../Redux/Actions/UpdateLanguageAction";
 import ApplicationState from "../Types/ApplicationState";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface LanguageProps {
   cid: number;
   state: ApplicationState
 }
-const Language = ({state, cid }: LanguageProps) => {
+const Language = ({ state, cid }: LanguageProps) => {
   const language = state.languages.find((item) => item.id === cid);
   return (
     <div className="language container">
@@ -21,10 +22,6 @@ const Language = ({state, cid }: LanguageProps) => {
       <div className="break-line"></div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Language);

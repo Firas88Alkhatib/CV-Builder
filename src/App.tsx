@@ -11,6 +11,7 @@ import FooterPreview from "./Components/FooterPreview";
 import PreviewMode from "./Components/previewMode"
 import { connect } from "react-redux";
 import ApplicationState from "./Types/ApplicationState";
+import SaveData from "./Components/SaveData"
 
 
 function App({ state }: { state: ApplicationState }) {
@@ -23,6 +24,7 @@ function App({ state }: { state: ApplicationState }) {
           <div className="edit-container">
             <div className="input">
               <StickyHeader />
+              <SaveData />
               <Details />
               <Employments />
               <Educations />

@@ -2,6 +2,7 @@ import { Dispatch } from "react";
 import { connect } from "react-redux";
 import { AnyAction } from "redux";
 import swal from "sweetalert";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface AddLinkProps {
   onClick?: (actionType: string, id: number) => (e: any) => void;
@@ -22,10 +23,6 @@ const AddLink = ({ actionType, cid, onClick }: AddLinkProps) => {
       <span className="add-link-label">Remove</span>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {

@@ -2,6 +2,7 @@ import { Dispatch } from "react";
 import { connect } from "react-redux";
 import { AnyAction } from "redux";
 import { debounce } from "../Helpers/Util";
+import { mapStateToProps } from "../Redux/ReactRedux";
 import ApplicationState from "../Types/ApplicationState";
 //import PropTypes from "prop-types";
 
@@ -16,7 +17,7 @@ interface InputFieldProps {
   action?: Function
 }
 
-const InputField = ({ cid, label, name, onChange, value ,action }: InputFieldProps) => {
+const InputField = ({ cid, label, name, onChange, value, action }: InputFieldProps) => {
   return (
     <div className="input-field item">
       <label>
@@ -28,15 +29,11 @@ const InputField = ({ cid, label, name, onChange, value ,action }: InputFieldPro
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return { state };
-};
-
 const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {
   return {
     onChange: (action: Function, id: string, fieldName: string) =>
       debounce((e: any) => {
-        dispatch(action(id,fieldName,e.target.value));
+        dispatch(action(id, fieldName, e.target.value));
       }, 700),
   };
 };

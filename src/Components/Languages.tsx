@@ -3,6 +3,7 @@ import ApplicationState from "../Types/ApplicationState";
 import actions from "../Redux/Actions";
 import AddLink from "./AddLink";
 import Language from "./Language";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 const Languages = ({ state }: { state: ApplicationState }) => {
   return (
@@ -16,10 +17,6 @@ const Languages = ({ state }: { state: ApplicationState }) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Languages);

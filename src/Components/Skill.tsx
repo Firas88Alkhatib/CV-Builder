@@ -6,12 +6,13 @@ import { SkillLevel } from "../Types/Skill";
 import RemoveLink from "./RemoveLink";
 import { updateSkillAction } from "../Redux/Actions/UpdateSkillAction";
 import ApplicationState from "../Types/ApplicationState";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 interface SkillProps {
   cid: number;
-  state:ApplicationState;
+  state: ApplicationState;
 }
-const Skill = ({ cid ,state}: SkillProps) => {
+const Skill = ({ cid, state }: SkillProps) => {
   const skill = state.skills.find((item) => item.id === cid);
   return (
     <div className="skill container">
@@ -21,10 +22,6 @@ const Skill = ({ cid ,state}: SkillProps) => {
       <div className="break-line"></div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Skill);

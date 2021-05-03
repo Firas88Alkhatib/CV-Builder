@@ -44,16 +44,15 @@ const Details = ({ personalDetails, skills, links, languages, color }: DetailsPr
       <View style={{ alignItems: "center" }}>
         <Text style={styles.name}>{`${personalDetails?.firstName} ${personalDetails?.lastName}`}</Text>
         <Text>{personalDetails.jobTitle}</Text>
-        <Text style={{ alignSelf: "flex-start" }}>⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</Text>
+        <View style={{ width: "80%", marginBottom: 10, height: 1, backgroundColor: "white" }}></View>
       </View>
       <Text style={styles.details}>
         {Object.entries((({ firstName, lastName, jobTitle, ...rest }) => rest)(personalDetails)).filter(([k, v]) => !!v)
           .length !== 0 && "Details"}
       </Text>
       <Text>{personalDetails.address}</Text>
-      <Text>{`${personalDetails.city}${personalDetails.city && personalDetails.postalCode && ", "}${
-        personalDetails.postalCode
-      }`}</Text>
+      <Text>{`${personalDetails.city}${personalDetails.city && personalDetails.postalCode && ", "}${personalDetails.postalCode
+        }`}</Text>
       <Text>{personalDetails.country}</Text>
       <Text>{personalDetails.phoneNumber}</Text>
       <Text>{personalDetails.email}</Text>

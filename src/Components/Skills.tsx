@@ -3,6 +3,7 @@ import ApplicationState from "../Types/ApplicationState";
 import actions from "../Redux/Actions";
 import AddLink from "./AddLink";
 import Skill from "./Skill";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 const Skills = ({ state }: { state: ApplicationState }) => {
   return (
@@ -16,10 +17,6 @@ const Skills = ({ state }: { state: ApplicationState }) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Skills);

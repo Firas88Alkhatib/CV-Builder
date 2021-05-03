@@ -3,6 +3,7 @@ import ApplicationState from "../Types/ApplicationState";
 import AddLink from "./AddLink";
 import actions from "../Redux/Actions";
 import Link from "./Link";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 const Links = ({ state }: { state: ApplicationState }) => {
   return (
@@ -19,10 +20,6 @@ const Links = ({ state }: { state: ApplicationState }) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Links);

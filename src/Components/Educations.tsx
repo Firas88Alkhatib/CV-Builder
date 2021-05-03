@@ -3,6 +3,7 @@ import ApplicationState from "../Types/ApplicationState";
 import AddLink from "./AddLink";
 import actions from "../Redux/Actions";
 import Education from "./Education";
+import { mapStateToProps } from "../Redux/ReactRedux";
 
 const Educations = ({ state }: { state: ApplicationState }) => {
   return (
@@ -16,10 +17,6 @@ const Educations = ({ state }: { state: ApplicationState }) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state: any) => {
-  return { state };
 };
 
 export default connect(mapStateToProps)(Educations);
