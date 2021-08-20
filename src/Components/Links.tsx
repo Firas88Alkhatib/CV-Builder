@@ -1,17 +1,18 @@
-import { connect } from "react-redux";
-import ApplicationState from "../Types/ApplicationState";
-import AddLink from "./AddLink";
-import actions from "../Redux/Actions";
-import Link from "./Link";
-import { mapStateToProps } from "../Redux/ReactRedux";
+import { useSelector } from 'react-redux'
+import AddLink from './AddLink'
+import actions from '../Redux/Actions'
+import Link from './Link'
+import ApplicationState from 'Types/ApplicationState'
+import ILink from 'Types/link'
 
-const Links = ({ state }: { state: ApplicationState }) => {
+const Links = () => {
+  const links = useSelector<ApplicationState, ILink[]>(state => state.links)
   return (
     <div>
       <h2>Websites & Social Links</h2>
       <div className="links section">
-        {state.links.map((item) => {
-          return <Link key={item.id} cid={item.id} />;
+        {links.map(item => {
+          return <Link key={item.id} cid={item.id} />
         })}
 
         <div className="">
@@ -19,7 +20,7 @@ const Links = ({ state }: { state: ApplicationState }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default connect(mapStateToProps)(Links);
+export default Links

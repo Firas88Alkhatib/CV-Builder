@@ -1,24 +1,17 @@
-import { connect } from "react-redux";
-import { AnyAction, Dispatch } from "redux";
-import { updatePreviewModeAction } from "../Redux/Actions/UpdatePreviewModeAction.ts";
-import { mapStateToProps } from "../Redux/ReactRedux";
-import Button from "./Button";
+import { useDispatch } from 'react-redux'
+import { updatePreviewModeAction } from '../Redux/Actions/UpdatePreviewModeAction.ts'
+import Button from './Button'
 
-
-
-
-const FooterPreview = ({ onClick }: { onClick: any }) => {
-  return <div className="footer-preview">
-    <Button label="Preview" onClick={onClick} />
-  </div>
+const FooterPreview = () => {
+  const dispatch = useDispatch()
+  const onClickHandler = () => {
+    dispatch(updatePreviewModeAction(true))
+  }
+  return (
+    <div className="footer-preview">
+      <Button label="Preview" onClick={onClickHandler} />
+    </div>
+  )
 }
 
-const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {
-  return {
-    onClick: () => {
-      dispatch(updatePreviewModeAction(true));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToPros)(FooterPreview);
+export default FooterPreview

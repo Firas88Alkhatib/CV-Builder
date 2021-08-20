@@ -1,21 +1,20 @@
-import { Dispatch } from "react";
-import { connect } from "react-redux";
-import { AnyAction } from "redux";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import ApplicationState from "../Types/ApplicationState";
-import { mapStateToProps } from "../Redux/ReactRedux";
+import { useDispatch } from 'react-redux'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 interface StartEndProps {
-  state: ApplicationState;
-  onChange?: Function;
-  cid: number;
-  startDate?: Date | null;
-  endDate?: Date | null;
-  actionType: string;
+  onChange?: Function
+  cid: number
+  startDate?: Date | null
+  endDate?: Date | null
+  actionType: string
 }
 
-const StartEnd = ({ actionType, startDate, endDate, cid, onChange }: StartEndProps) => {
+const StartEnd = ({ actionType, startDate, endDate, cid }: StartEndProps) => {
+  const dispatch = useDispatch()
+  const onChangeHandler = (actionType: string, id: number, fieldName: string, date: any) => {
+    dispatch({ type: actionType, payload: { id, value: { [fieldName]: date } } })
+  }
   return (
     <div className="start-end-container">
       <span className="startend-label">Start & End Date</span>
@@ -27,7 +26,7 @@ const StartEnd = ({ actionType, startDate, endDate, cid, onChange }: StartEndPro
             showMonthYearPicker
             closeOnScroll={true}
             selected={startDate && new Date(startDate)}
-            onChange={(date) => onChange && onChange(actionType, cid, "startDate", date)}
+            onChange={date => onChangeHandler(actionType, cid, 'startDate', date)}
           />
         </div>
         <div className="time-item">
@@ -36,20 +35,12 @@ const StartEnd = ({ actionType, startDate, endDate, cid, onChange }: StartEndPro
             showMonthYearPicker
             closeOnScroll={true}
             selected={endDate && new Date(endDate)}
-            onChange={(date) => onChange && onChange(actionType, cid, "endDate", date)}
+            onChange={date => onChangeHandler(actionType, cid, 'endDate', date)}
           />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {
-  return {
-    onChange: (actionType: string, id: number, fieldName: string, date: any) => {
-      dispatch({ type: actionType, payload: { id, value: { [fieldName]: date } } });
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToPros)(StartEnd);
+export default StartEnd

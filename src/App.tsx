@@ -1,30 +1,34 @@
-import Details from "./Components/Details";
-import Employments from "./Components/Employments";
-import Educations from "./Components/Educations";
-import Skills from "./Components/Skills";
-import Templates from "./Templates"
-import Links from "./Components/Links";
-import Languages from "./Components/Languages";
-import StickyHeader from "./Components/StickyHeader";
-import Footer from "./Components/Footer";
-import FooterPreview from "./Components/FooterPreview";
-import PreviewMode from "./Components/previewMode"
-import { connect } from "react-redux";
-import ApplicationState from "./Types/ApplicationState";
-import SaveData from "./Components/SaveData"
+import { useSelector } from 'react-redux'
 
+import Templates from './Templates'
+import StickyHeader from './Components/StickyHeader'
+import Details from './Components/Details'
+import Employments from './Components/Employments'
+import Educations from './Components/Educations'
+import Skills from './Components/Skills'
+import Links from './Components/Links'
+import Languages from './Components/Languages'
+import Footer from './Components/Footer'
+import FooterPreview from './Components/FooterPreview'
+import PreviewMode from './Components/previewMode'
+import ApplicationState from './Types/ApplicationState'
+import KeepData from './Components/KeepData'
 
-function App({ state }: { state: ApplicationState }) {
-  const CurrentTemplate = Templates[state.currentTemplate as keyof typeof Templates];
-  const previewMode = state.previewMode
+function App() {
+  const previewMode = useSelector<ApplicationState, boolean>(state => state.previewMode)
+  const currentTemplate = useSelector<ApplicationState, string>(state => state.currentTemplate)
+
+  const CurrentTemplate = Templates[currentTemplate as keyof typeof Templates]
   return (
     <div className="App">
-      {previewMode ? <PreviewMode /> :
+      {previewMode ? (
+        <PreviewMode />
+      ) : (
         <div className="edit-mode">
           <div className="edit-container">
             <div className="input">
               <StickyHeader />
-              <SaveData />
+              <KeepData />
               <Details />
               <Employments />
               <Educations />
@@ -38,15 +42,10 @@ function App({ state }: { state: ApplicationState }) {
           <div className="output">
             <CurrentTemplate />
           </div>
-        </div>}
+        </div>
+      )}
     </div>
-  );
+  )
 }
 
-const mapStateToProps = (state: any) => {
-  return { state };
-};
-
-export default connect(mapStateToProps)(App);
-
-
+export default App

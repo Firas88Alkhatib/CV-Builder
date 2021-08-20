@@ -1,19 +1,17 @@
-import { connect } from "react-redux";
-import actions from "../Redux/Actions";
-import InputField from "./InputField";
-import Level from "./Level";
-import { SkillLevel } from "../Types/Skill";
-import RemoveLink from "./RemoveLink";
-import { updateSkillAction } from "../Redux/Actions/UpdateSkillAction";
-import ApplicationState from "../Types/ApplicationState";
-import { mapStateToProps } from "../Redux/ReactRedux";
+import { useSelector } from 'react-redux'
+import actions from '../Redux/Actions'
+import InputField from './InputField'
+import Level from './Level'
+import RemoveLink from './RemoveLink'
+import { updateSkillAction } from '../Redux/Actions/UpdateSkillAction'
+import ApplicationState from '../Types/ApplicationState'
+import ISkill, { SkillLevel } from '../Types/Skill'
 
 interface SkillProps {
-  cid: number;
-  state: ApplicationState;
+  cid: number
 }
-const Skill = ({ cid, state }: SkillProps) => {
-  const skill = state.skills.find((item) => item.id === cid);
+const Skill = ({ cid }: SkillProps) => {
+  const skill = useSelector<ApplicationState, ISkill | undefined>(state => state.skills.find(item => item.id === cid))
   return (
     <div className="skill container">
       <InputField value={skill?.name} cid={cid} label="Skill" name="name" action={updateSkillAction} />
@@ -21,7 +19,7 @@ const Skill = ({ cid, state }: SkillProps) => {
       <RemoveLink actionType={actions.REMOVE_SKILL} cid={cid} />
       <div className="break-line"></div>
     </div>
-  );
-};
+  )
+}
 
-export default connect(mapStateToProps)(Skill);
+export default Skill

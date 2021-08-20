@@ -1,38 +1,30 @@
-import { Dispatch } from "react";
-import { connect } from "react-redux";
-import { AnyAction } from "redux";
-import { debounce } from "../Helpers/Util";
-import { mapStateToProps } from "../Redux/ReactRedux";
+import { useDispatch } from 'react-redux'
+import { debounce } from '../Helpers/Util'
 
 interface TextFieldProps {
-  inputType?: string;
-  label: string;
-  name: string;
-  onChange?: Function;
-  actionType: string;
-  cid?: number;
+  inputType?: string
+  label: string
+  name: string
+  onChange?: Function
+  actionType: string
+  cid?: number
   value?: string
 }
 
 const TextField = ({ value, cid, label, actionType, name, onChange }: TextFieldProps) => {
+  const dispatch = useDispatch()
+  const onChangeHandler = debounce((e: any) => {
+    dispatch({ type: actionType, payload: { id: cid, value: { [name]: e.target.value } } })
+  }, 500)
   return (
     <div className="text-field">
       <label>
         <span>{label}</span>
         <br />
-        <textarea defaultValue={value} name={name} onChange={onChange && onChange(actionType, cid, name)}></textarea>
+        <textarea defaultValue={value} name={name} onChange={onChangeHandler}></textarea>
       </label>
     </div>
-  );
-};
+  )
+}
 
-const mapDispatchToPros = (dispatch: Dispatch<AnyAction>) => {
-  return {
-    onChange: (actionType: string, id: number, fieldName: string) =>
-      debounce((e: any) => {
-        dispatch({ type: actionType, payload: { id, value: { [fieldName]: e.target.value } } });
-      }, 500),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToPros)(TextField);
+export default TextField
