@@ -33,11 +33,11 @@ function App() {
               <Employments />
               <Educations />
               <Skills />
-              <Links />
               <Languages />
+              <Links />
               <FooterPreview />
-              <Footer />
             </div>
+            <Footer />
           </div>
           <div className="output">
             <CurrentTemplate />

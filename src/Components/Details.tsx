@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
 import PersonalDetails from 'Types/PersonalDetails'
-import actions from '../Redux/Actions'
-import { updatePersonalDetailsAction } from '../Redux/Actions/UpdatePersonalDetailsAction'
-import ApplicationState from '../Types/ApplicationState'
-import InputField from './InputField'
+import actions from 'Redux/Actions'
+import { updatePersonalDetailsAction } from 'Redux/Actions/UpdatePersonalDetailsAction'
+import ApplicationState from 'Types/ApplicationState'
+import InputField from 'Components/InputField'
+import Accordion from 'Components/Accordion'
 import './style.css'
 
 import TextField from './TextField'
@@ -11,8 +12,7 @@ import TextField from './TextField'
 const Details = () => {
   const personalDetails = useSelector<ApplicationState, PersonalDetails>(state => state.personalDetails)
   return (
-    <div>
-      <h2>Personal Details</h2>
+    <Accordion title="Personal Details">
       <div className="personal-details container">
         <InputField value={personalDetails.firstName} label="First Name" name="firstName" action={updatePersonalDetailsAction} />
         <InputField value={personalDetails.lastName} label="Last Name" name="lastName" action={updatePersonalDetailsAction} />
@@ -26,7 +26,7 @@ const Details = () => {
         <InputField value={personalDetails.dateOfBirth} label="Date of Birth" name="dateOfBirth" action={updatePersonalDetailsAction} />
         <TextField value={personalDetails.about} label="About" name="about" actionType={actions.UPDATE_PERSONAL_DETAILS}></TextField>
       </div>
-    </div>
+    </Accordion>
   )
 }
 

@@ -16,13 +16,19 @@ html, body {
 
 .edit-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+footer {
+  width: calc(45vw + 17px);
+  padding: 20px 0;
+  background-color: #eee;
 }
 
 .input {
   width: calc(45vw - 40px);
   margin: 30px;
-  margin-bottom: 70px;
 }
 .output {
   width: calc(55vw - 40px);
@@ -48,6 +54,9 @@ html, body {
   display: none;
 }
 .input {
+  width: calc(100% - 60px);
+}
+footer {
   width: 100%;
 }
 }

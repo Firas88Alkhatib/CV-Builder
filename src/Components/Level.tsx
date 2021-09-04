@@ -23,17 +23,17 @@ const Level = ({ value, actionType, cid, options }: LevelProps) => {
   }
   const styles = {
     control: (provided: any) => {
-      return { ...provided, backgroundColor: 'rgb(242, 245, 250)', border: 0, boxShadow: 0 }
+      return { ...provided, backgroundColor: 'rgb(230, 244, 255)', border: 0, boxShadow: 0 }
     },
     container: (provided: any) => {
       return { ...provided, marginTop: 5 }
     }
   }
   return (
-    <div className="input-field item">
+    <div className="level input-field item">
       <span>Level</span>
       <br />
-      <div className="select item">
+      <div className="select">
         <Select defaultValue={{ label: value, value }} isSearchable={false} options={op} styles={styles} onChange={onChangeHandler} />
       </div>
     </div>

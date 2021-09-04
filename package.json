@@ -13,7 +13,7 @@
     "@types/react-dom": "^17.0.3",
     "axios": "^0.21.1",
     "firebase": "^8.4.3",
-    "immer": "^8.0.4",
+    "immer": "^9.0.5",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
     "react-datepicker": "^3.8.0",
@@ -22,7 +22,7 @@
     "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "react-select": "^4.3.0",
-    "redux": "^4.1.0",
+    "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "sweetalert": "^2.1.2",
     "typescript": "^4.2.4",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@types/react-color": "^3.0.4",
     "@types/react-datepicker": "^3.1.8",
-    "@types/react-pdf": "^5.0.2",
+    "@types/react-pdf": "^5.0.5",
     "@types/react-redux": "^7.1.16",
     "@types/react-select": "^4.0.15"
   }

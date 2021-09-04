@@ -1,25 +1,26 @@
-import { useSelector } from 'react-redux'
+import { useSelector, shallowEqual } from 'react-redux'
 import ApplicationState from '../Types/ApplicationState'
 import AddLink from './AddLink'
 import Employment from './Employment'
 import actions from '../Redux/Actions'
 import IEmploymentHistory from 'Types/EmploymentHistory'
+import Accordion from 'Components/Accordion'
 
 const Employments = () => {
-  const employmentHistory = useSelector<ApplicationState, IEmploymentHistory[]>(state => state.employmentHistory)
+  const employmentHistory = useSelector<ApplicationState, IEmploymentHistory[]>(state => state.employmentHistory, shallowEqual)
+
   return (
-    <div>
-      <h2>Employment History</h2>
-      <div className="employments section">
+    <Accordion title="Employment History">
+      <div className="employments">
         {employmentHistory.map(item => (
-          <Employment key={item.id} cid={item.id} />
+          <Accordion expanded={false} className="sub-accordion" key={item.id} title={item.jobTitle}>
+            <Employment cid={item.id} />
+          </Accordion>
         ))}
 
-        <div className="">
-          <AddLink label="Add Employment" actionType={actions.ADD_EMPLOYMENT} />
-        </div>
+        <AddLink label="Add Employment" actionType={actions.ADD_EMPLOYMENT} />
       </div>
-    </div>
+    </Accordion>
   )
 }
 

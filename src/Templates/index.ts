@@ -1,6 +1,8 @@
-import DefaultTemplate from "./Default"
+import DefaultTemplate from './Default'
+import Temp from './Template2'
 
 const templates = {
-    Default : DefaultTemplate
+  Default: DefaultTemplate,
+  Temp
 }
-export default templates;
+export default templates

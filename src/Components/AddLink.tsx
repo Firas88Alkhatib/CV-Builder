@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 
 interface AddLinkProps {
@@ -6,9 +7,11 @@ interface AddLinkProps {
 }
 const AddLink = ({ actionType, label }: AddLinkProps) => {
   const dispatch = useDispatch()
-  const onClickHandler = () => {
+
+  const onClickHandler = useCallback(() => {
     dispatch({ type: actionType })
-  }
+  }, [actionType, dispatch])
+
   return (
     <div className="add-link" onClick={onClickHandler}>
       <div className="plus-symbol">

@@ -4,19 +4,19 @@ import AddLink from './AddLink'
 import Language from './Language'
 import ApplicationState from '../Types/ApplicationState'
 import ILanguage from 'Types/Language'
+import Accordion from 'Components/Accordion'
 
 const Languages = () => {
   const languages = useSelector<ApplicationState, ILanguage[]>(state => state.languages)
   return (
-    <div>
-      <h2>Languages</h2>
+    <Accordion title="Languages">
       <div className="languages section">
-        {languages.map(item => {
-          return <Language key={item.id} cid={item.id} />
-        })}
+        {languages.map(item => (
+          <Language key={item.id} cid={item.id} />
+        ))}
         <AddLink label="Add Language" actionType={actions.ADD_LANGUAGE} />
       </div>
-    </div>
+    </Accordion>
   )
 }
 
