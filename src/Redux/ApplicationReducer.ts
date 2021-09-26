@@ -10,43 +10,19 @@ import actions from './Actions'
 
 const reducer = produce((draft: Draft<ApplicationState>, action: AnyAction) => {
   switch (action.type) {
+    case actions.UPDATE_PERSONAL_DETAILS: {
+      draft.personalDetails = { ...draft.personalDetails, ...action.payload.value }
+      break
+    }
+
+    /**
+     * Employment History Reducer----------------------------------------------------
+     */
     case actions.ADD_EMPLOYMENT: {
       let emp = new EmploymentHistory()
       const ids = draft.employmentHistory.map(item => item.id)
       emp.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
       draft.employmentHistory.push(emp)
-      break
-    }
-    case actions.ADD_EDUCATION: {
-      let edu = new Education()
-      const ids = draft.educations.map(item => item.id)
-      edu.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
-      draft.educations.push(edu)
-      break
-    }
-    case actions.ADD_SKILL: {
-      const skill = new Skill()
-      const ids = draft.skills.map(item => item.id)
-      skill.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
-      draft.skills.push(skill)
-      break
-    }
-    case actions.ADD_LANGUAGE: {
-      let language = new Language()
-      const ids = draft.languages.map(item => item.id)
-      language.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
-      draft.languages.push(language)
-      break
-    }
-    case actions.ADD_LINK: {
-      let link = new Link()
-      const ids = draft.links.map(item => item.id)
-      link.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
-      draft.links.push(link)
-      break
-    }
-    case actions.UPDATE_PERSONAL_DETAILS: {
-      draft.personalDetails = { ...draft.personalDetails, ...action.payload.value }
       break
     }
     case actions.UPDATE_EMPLOYMENT: {
@@ -57,12 +33,40 @@ const reducer = produce((draft: Draft<ApplicationState>, action: AnyAction) => {
       }
       break
     }
+    case actions.REMOVE_EMPLOYMENT: {
+      draft.employmentHistory = draft.employmentHistory.filter(item => item.id !== action.payload.id)
+      break
+    }
+    /**
+     * Education Reducer----------------------------------------------------
+     */
+    case actions.ADD_EDUCATION: {
+      let edu = new Education()
+      const ids = draft.educations.map(item => item.id)
+      edu.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
+      draft.educations.push(edu)
+      break
+    }
     case actions.UPDATE_EDUCATION: {
       const index = draft.educations.findIndex(item => item.id === action.payload.id)
       draft.educations[index] = {
         ...draft.educations[index],
         ...action.payload.value
       }
+      break
+    }
+    case actions.REMOVE_EDUCATION: {
+      draft.educations = draft.educations.filter(item => item.id !== action.payload.id)
+      break
+    }
+    /**
+     * Skills Reducer----------------------------------------------------
+     */
+    case actions.ADD_SKILL: {
+      const skill = new Skill()
+      const ids = draft.skills.map(item => item.id)
+      skill.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
+      draft.skills.push(skill)
       break
     }
     case actions.UPDATE_SKILL: {
@@ -73,12 +77,40 @@ const reducer = produce((draft: Draft<ApplicationState>, action: AnyAction) => {
       }
       break
     }
+    case actions.REMOVE_SKILL: {
+      draft.skills = draft.skills.filter(item => item.id !== action.payload.id)
+      break
+    }
+    /**
+     * Languages Reducer----------------------------------------------------
+     */
+    case actions.ADD_LANGUAGE: {
+      let language = new Language()
+      const ids = draft.languages.map(item => item.id)
+      language.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
+      draft.languages.push(language)
+      break
+    }
     case actions.UPDATE_LANGUAGE: {
       const index = draft.languages.findIndex(item => item.id === action.payload.id)
       draft.languages[index] = {
         ...draft.languages[index],
         ...action.payload.value
       }
+      break
+    }
+    case actions.REMOVE_LANGUAGE: {
+      draft.languages = draft.languages.filter(item => item.id !== action.payload.id)
+      break
+    }
+    /**
+     * Links Reducer----------------------------------------------------
+     */
+    case actions.ADD_LINK: {
+      let link = new Link()
+      const ids = draft.links.map(item => item.id)
+      link.id = ids.length > 0 ? Math.max(...ids) + 1 : 1
+      draft.links.push(link)
       break
     }
     case actions.UPDATE_LINK: {
@@ -89,32 +121,21 @@ const reducer = produce((draft: Draft<ApplicationState>, action: AnyAction) => {
       }
       break
     }
-    case actions.REMOVE_EMPLOYMENT: {
-      draft.employmentHistory = draft.employmentHistory.filter(item => item.id !== action.payload.id)
-      break
-    }
-    case actions.REMOVE_EDUCATION: {
-      draft.educations = draft.educations.filter(item => item.id !== action.payload.id)
-      break
-    }
-    case actions.REMOVE_SKILL: {
-      draft.skills = draft.skills.filter(item => item.id !== action.payload.id)
-      break
-    }
-    case actions.REMOVE_LANGUAGE: {
-      draft.languages = draft.languages.filter(item => item.id !== action.payload.id)
-      break
-    }
     case actions.REMOVE_LINK: {
       draft.links = draft.links.filter(item => item.id !== action.payload.id)
       break
     }
-    case actions.UPDATE_TEMPLATE_VALUES: {
-      draft.templateValues = { ...draft.templateValues, ...action.payload }
+    /**
+     * Rest Reducers----------------------------------------------------
+     */
+    // anonymous login -*-*-*-*-*-
+    case actions.UPDATE_ANONYMOUS_LOGIN: {
+      draft.anonymousLogin = action.payload
+      localStorage.setItem('anonymousLogin', `${action.payload}`)
       break
     }
-    case actions.UPDATE_PREVIEW_MODE: {
-      draft.previewMode = action.payload.value
+    case actions.UPDATE_TEMPLATE_VALUES: {
+      draft.templateValues = { ...draft.templateValues, ...action.payload }
       break
     }
     case actions.UPDATE_KEEPDATA: {

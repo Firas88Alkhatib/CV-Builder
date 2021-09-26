@@ -1,0 +1,19 @@
+.add-link {
+  display: flex;
+  font-size: 16px;
+  padding: 6px 14px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 4px;
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease 0s;
+  &:hover {
+    background-color: var(--input-background);
+  }
+  polygon {
+    fill: var(--blue);
+  }
+}

@@ -1,11 +1,10 @@
-import { useDispatch } from 'react-redux'
-import { updatePreviewModeAction } from '../Redux/Actions/UpdatePreviewModeAction.ts'
+import { useHistory } from 'react-router-dom'
 import Button from './Button'
 
 const FooterPreview = () => {
-  const dispatch = useDispatch()
+  const history = useHistory()
   const onClickHandler = () => {
-    dispatch(updatePreviewModeAction(true))
+    history.push('/preview')
   }
   return (
     <div className="footer-preview">

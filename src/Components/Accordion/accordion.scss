@@ -1,0 +1,36 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  > .accordion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--blue);
+    padding: 10px 0 10px 20px;
+    margin: 0.83em 0;
+    cursor: pointer;
+    > button {
+      font-size: 1.5em;
+      font-weight: 500;
+      color: white;
+    }
+    > svg {
+      margin: auto 20px;
+      color: white;
+      height: 30px;
+    }
+  }
+  > .accordion-content {
+    margin: 0 10px;
+  }
+}
+
+.accordion-header__title {
+  background-color: transparent;
+  border: none;
+  cursor: inherit;
+  text-decoration: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}

@@ -1,11 +1,11 @@
-import actions from "../Actions"
+import actions from '../Actions'
 
-export const updateSkillAction = (id:string,fieldName:string,value:string)=>{
-    return {
-      type: actions.UPDATE_SKILL,
-            payload: {
-              id,
-              value: { [fieldName]: value },
-            },
+export const updateSkillAction = (id: string, fieldName: string, value: string) => {
+  return {
+    type: actions.UPDATE_SKILL,
+    payload: {
+      id,
+      value: { [fieldName]: value }
     }
   }
+}

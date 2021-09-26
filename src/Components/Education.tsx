@@ -2,9 +2,9 @@ import { useSelector } from 'react-redux'
 
 import actions from '../Redux/Actions'
 import InputField from './InputField'
-import TextField from './TextField'
+import TextField from './TextField/TextField'
 import StartEnd from './StartEnd'
-import RemoveLink from './RemoveLink'
+import RemoveLink from './RemoveLink/RemoveLink'
 import { updateEducationAction } from '../Redux/Actions/UpdateEducationAction'
 
 import ApplicationState from '../Types/ApplicationState'

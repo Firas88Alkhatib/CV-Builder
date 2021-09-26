@@ -1,10 +1,10 @@
 import { useSelector, shallowEqual } from 'react-redux'
 import ApplicationState from '../Types/ApplicationState'
-import AddLink from './AddLink'
+import AddLink from './AddLink/AddLink'
 import actions from '../Redux/Actions'
 import Education from './Education'
 import IEducation from '../Types/Education'
-import Accordion from 'Components/Accordion'
+import Accordion from 'Components/Accordion/Accordion'
 
 const Educations = () => {
   const educations = useSelector<ApplicationState, IEducation[]>(state => state.educations, shallowEqual)

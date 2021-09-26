@@ -19,6 +19,7 @@
 .env.production.local
 .firebase
 .firebaserc
+.vscode
 /firebase.json
 
 npm-debug.log*

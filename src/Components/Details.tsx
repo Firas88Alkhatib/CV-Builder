@@ -4,10 +4,10 @@ import actions from 'Redux/Actions'
 import { updatePersonalDetailsAction } from 'Redux/Actions/UpdatePersonalDetailsAction'
 import ApplicationState from 'Types/ApplicationState'
 import InputField from 'Components/InputField'
-import Accordion from 'Components/Accordion'
-import './style.css'
+import Accordion from 'Components/Accordion/Accordion'
+import './style.scss'
 
-import TextField from './TextField'
+import TextField from './TextField/TextField'
 
 const Details = () => {
   const personalDetails = useSelector<ApplicationState, PersonalDetails>(state => state.personalDetails)
@@ -19,7 +19,13 @@ const Details = () => {
         <InputField value={personalDetails.jobTitle} label="Job Title" name="jobTitle" action={updatePersonalDetailsAction} />
         <InputField value={personalDetails.address} label="Address" name="address" action={updatePersonalDetailsAction} />
         <InputField value={personalDetails.city} label="City" name="city" action={updatePersonalDetailsAction} />
-        <InputField value={personalDetails.postalCode} inputType="number" label="Postal Code" name="postalCode" action={updatePersonalDetailsAction} />
+        <InputField
+          value={personalDetails.postalCode}
+          inputType="number"
+          label="Postal Code"
+          name="postalCode"
+          action={updatePersonalDetailsAction}
+        />
         <InputField value={personalDetails.country} label="Country" name="country" action={updatePersonalDetailsAction} />
         <InputField value={personalDetails.phoneNumber} label="Phone Number" name="phoneNumber" action={updatePersonalDetailsAction} />
         <InputField value={personalDetails.email} inputType="email" label="Email" name="email" action={updatePersonalDetailsAction} />

@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
 import actions from '../Redux/Actions'
-import AddLink from './AddLink'
+import AddLink from './AddLink/AddLink'
 import Language from './Language'
 import ApplicationState from '../Types/ApplicationState'
 import ILanguage from 'Types/Language'
-import Accordion from 'Components/Accordion'
+import Accordion from 'Components/Accordion/Accordion'
 
 const Languages = () => {
   const languages = useSelector<ApplicationState, ILanguage[]>(state => state.languages)

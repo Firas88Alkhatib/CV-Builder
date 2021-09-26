@@ -1,0 +1,214 @@
+@import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+$media-mobile: 'only screen and (max-width : 700px)';
+$media-mid: 'only screen and (max-width : 1320px)';
+
+.login {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 500ms ease-out;
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+  &.on-signin {
+    background: #03a9f4;
+    .login-form-container {
+      left: 0;
+    }
+  }
+  &.on-register {
+    background-color: #f43648;
+    .login-form-container {
+      left: 50%;
+    }
+  }
+}
+
+.login-container {
+  position: relative;
+  height: 65%;
+  width: 55%;
+  display: flex;
+  flex-direction: row;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+  > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    justify-content: center;
+    align-items: center;
+    > span {
+      color: #fff;
+      font-size: 2.9vh;
+      font-weight: 500;
+      margin: 15px;
+    }
+    > button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background: #fff;
+      color: #333;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+    }
+  }
+}
+
+.login-form-container {
+  position: absolute;
+  top: -10%;
+  width: 50%;
+  height: 120%;
+  background: #fff;
+  transition: all 500ms ease-in-out 200ms;
+  overflow: hidden;
+  > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 25px;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    > h3 {
+      font-size: 1.5em;
+      color: #333;
+      margin: 10px 0;
+      font-weight: 500;
+    }
+    > a {
+      color: #333;
+      margin-top: 20px;
+    }
+    > input {
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      padding: 10px;
+      outline: none;
+      font-size: 16px;
+      border: 1px solid #636363;
+    }
+    button {
+      cursor: pointer;
+      color: #fff;
+      border: none;
+      margin: 0 auto;
+      font-weight: 500;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    button:disabled,
+    button[disabled] {
+      background: #eee;
+    }
+  }
+  .signin-form {
+    &__buttons {
+      margin: 0 auto;
+    }
+    button {
+      background: #03a9f4;
+      margin: 2px 10px;
+    }
+    &.inactive {
+      transition: 650ms ease-in-out;
+      left: -200%;
+    }
+    &.active {
+      transition: 650ms linear 200ms;
+      left: 0;
+    }
+  }
+  .register-form {
+    > button {
+      background: #f43648;
+    }
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &.inactive {
+      transition: 650ms ease-in-out;
+      left: +200%;
+    }
+    &.active {
+      transition: 650ms linear 200ms;
+      left: 0;
+    }
+  }
+  .login-form_errors {
+    margin-bottom: 5px;
+    overflow: auto;
+    span {
+      color: #f43648;
+      padding: 3px 0;
+      display: block;
+    }
+  }
+}
+@media #{$media-mid} {
+  .login-container {
+    width: 75%;
+  }
+}
+
+@media #{$media-mobile} {
+  .login {
+    &.on-signin {
+      .login-form-container {
+        left: 0;
+        top: 0;
+      }
+    }
+    &.on-register {
+      .login-form-container {
+        left: 0;
+        top: 25%;
+      }
+    }
+  }
+
+  .login-container {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 97%;
+    width: 95%;
+    > div {
+      height: 25%;
+      flex: 0 1 auto;
+    }
+    .login-form-container {
+      height: 75%;
+      width: 100%;
+    }
+
+    .signin-form {
+      &.inactive {
+        left: 0;
+        top: -200%;
+      }
+      &.active {
+        top: 0;
+      }
+    }
+    .register-form {
+      &.inactive {
+        left: 0;
+        top: +200%;
+      }
+      &.active {
+        left: 0;
+      }
+    }
+  }
+}

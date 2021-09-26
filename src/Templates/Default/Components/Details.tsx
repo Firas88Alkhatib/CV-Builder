@@ -3,7 +3,7 @@ import Language from '../../../Types/Language'
 import ILink from '../../../Types/link'
 import PersonalDetails from '../../../Types/PersonalDetails'
 import Skill from '../../../Types/Skill'
-import LanguageCom from './LangaugeCom'
+import LanguageCom from './LanguageCom'
 import SkillCom from './SkillCom'
 
 const styles = StyleSheet.create({

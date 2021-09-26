@@ -1,0 +1,146 @@
+:root {
+  --blue: rgb(33, 150, 243);
+  --black: rgb(38, 43, 51);
+  --grey: rgb(125, 125, 125);
+  --red: rgb(255, 102, 102);
+  --light-red: rgb(255, 230, 229);
+  --green: rgb(14, 110, 58);
+  --light-green: rgb(37, 184, 105);
+  --input-background: rgb(230, 244, 255);
+  --light-grey: rgb(242, 245, 250);
+  --test: rgb(228, 231, 237);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+.item {
+  flex: calc(50% - 10px);
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+
+.item > label > span {
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.main * input {
+  border-radius: 3px;
+  padding: 11px 16px;
+  display: block;
+  caret-color: var(--blue);
+  background-color: var(--input-background);
+  outline: none;
+  border: 0px;
+  color: var(--black);
+  pointer-events: unset;
+  width: calc(100% - 40px);
+  margin-right: 20px;
+  transition: color 0.1s ease 0s;
+}
+.input-field-label {
+  color: rgb(125, 125, 125);
+}
+
+.start-end-container {
+  width: 50%;
+}
+.time-item {
+  flex: 50%;
+}
+.dates {
+  display: flex;
+  flex-direction: row;
+}
+.level > span {
+  color: var(--grey);
+}
+
+.break-line {
+  height: 1px;
+  background: var(--blue);
+  width: 85%;
+  margin: 15px auto;
+}
+.startend-label {
+  margin-bottom: 5px;
+  display: inline-block;
+  color: var(--grey);
+}
+
+.section {
+  border: 2px solid var(--light-grey);
+  padding: 10px;
+}
+
+.react-datepicker__input-container {
+  position: initial !important;
+}
+.css-chtgcy-container {
+  z-index: 1;
+}
+.button {
+  background-color: var(--blue);
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.button span {
+  font-size: 20px;
+  color: white;
+}
+
+.preview-mode-header {
+  background-color: var(--blue);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.preview-mode-header span {
+  margin-left: 50px;
+  font-size: 20px;
+  color: white;
+}
+
+.sub-accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e6ebf4;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  > .accordion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+    color: dimgrey;
+    transition: color 150ms ease 0s;
+    > button {
+      font-size: 1em;
+      font-weight: 600;
+      color: currentColor;
+    }
+    &:hover {
+      color: var(--blue);
+    }
+    > svg {
+      margin: auto 20px;
+      color: currentColor;
+      height: 30px;
+    }
+  }
+  > .accordion-content {
+    margin: 0 10px;
+  }
+}

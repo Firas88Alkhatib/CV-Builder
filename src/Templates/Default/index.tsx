@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { PDFViewer } from '@react-pdf/renderer'
-import { CirclePicker } from 'react-color'
 import PDFTemplate from './PDFTemplate'
 import actions from '../../Redux/Actions'
 import { BlobProvider, PDFDownloadLink } from '@react-pdf/renderer'
@@ -8,6 +7,7 @@ import { Document, Page } from 'react-pdf/dist/umd/entry.webpack'
 import { useState } from 'react'
 import Button from '../../Components/Button'
 import ApplicationState from '../../Types/ApplicationState'
+import CircleColorPicker from 'Components/CircleColorPicker/CircleColorPicker'
 import './styles.css'
 
 const colors = ['#10365C', '#084C41', '#87300D', '#3E1D53', '#242935', '#e81a4a']
@@ -22,8 +22,8 @@ const styles = {
 const Viewer = ({ isMobileView }: { isMobileView?: boolean }) => {
   const dispatch = useDispatch()
   const state = useSelector<ApplicationState, ApplicationState>(state => state)
-  const onChangeHandler = (color: any) => {
-    dispatch({ type: actions.UPDATE_TEMPLATE_VALUES, payload: { color: color.hex } })
+  const onChangeHandler = (color: string) => {
+    dispatch({ type: actions.UPDATE_TEMPLATE_VALUES, payload: { color } })
   }
   const [numPages, setNumPages] = useState(1)
 
@@ -56,7 +56,7 @@ const Viewer = ({ isMobileView }: { isMobileView?: boolean }) => {
             'Loading document...'
           ) : (
             <div style={styles.downloadButton}>
-              <Button label="Donwload" />
+              <Button label="Download" />
             </div>
           )
         }
@@ -71,9 +71,7 @@ const Viewer = ({ isMobileView }: { isMobileView?: boolean }) => {
   )
   return (
     <div className="template-view" style={styles.templateView}>
-      <div className="colors" style={styles.colorsView}>
-        <CirclePicker color={color} colors={colors} width={'25px'} styles={{ default: { card: { marginRight: 1 } } }} onChangeComplete={onChangeHandler} />
-      </div>
+      <CircleColorPicker colors={colors} initialColor={color} onClick={onChangeHandler} />
       {isMobileView ? mobileView : normalView}
     </div>
   )

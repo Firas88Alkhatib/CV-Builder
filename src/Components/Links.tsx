@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
-import AddLink from './AddLink'
+import AddLink from './AddLink/AddLink'
 import actions from '../Redux/Actions'
 import Link from './Link'
 import ApplicationState from 'Types/ApplicationState'
 import ILink from 'Types/link'
-import Accordion from 'Components/Accordion'
+import Accordion from 'Components/Accordion/Accordion'
 
 const Links = () => {
   const links = useSelector<ApplicationState, ILink[]>(state => state.links)

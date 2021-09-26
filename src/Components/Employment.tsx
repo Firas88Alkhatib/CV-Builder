@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
 import actions from '../Redux/Actions'
 import InputField from './InputField'
-import TextField from './TextField'
+import TextField from './TextField/TextField'
 import StartEnd from './StartEnd'
 import ApplicationState from '../Types/ApplicationState'
-import RemoveLink from './RemoveLink'
+import RemoveLink from './RemoveLink/RemoveLink'
 import { updateEmploymentAction } from '../Redux/Actions/UpdateEmploymentAction'
 import IEmployment from '../Types/EmploymentHistory'
 

@@ -1,0 +1,38 @@
+.sticky-header {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 15px 25px;
+  color: var(--green);
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    span {
+      margin-right: 40%;
+      padding-left: 30px;
+      font-size: 18px;
+    }
+    button {
+      background-color: var(--blue);
+      border: none;
+      color: #fff;
+      text-align: center;
+      padding: 7px 15px;
+      cursor: pointer;
+      align-self: center;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  &__line {
+    height: 3px;
+    background: var(--light-green);
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 50px;
+  }
+}

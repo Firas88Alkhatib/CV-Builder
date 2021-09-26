@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import actions from '../Redux/Actions'
 import { updateLinkAction } from '../Redux/Actions/UpdateLinkAction'
 import InputField from './InputField'
-import RemoveLink from './RemoveLink'
+import RemoveLink from './RemoveLink/RemoveLink'
 import ApplicationState from 'Types/ApplicationState'
 import ILink from 'Types/link'
 

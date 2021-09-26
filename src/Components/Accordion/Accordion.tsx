@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect } from 'react'
+import './accordion.scss'
 
 interface IAccordionProps {
   children: JSX.Element | JSX.Element[]
@@ -49,7 +50,7 @@ const Accordion = ({ children, title, className = 'accordion', expanded = true }
   return (
     <div className={className}>
       <div className="accordion-header" onClick={onClickHandler}>
-        <button className="link-button">{title || 'No Title'}</button>
+        <button className="accordion-header__title">{title || 'No Title'}</button>
         <svg viewBox="0 0 24 24" ref={iconRefCallback} style={iconStyle}>
           <path d="M9 18L15 12L9 6" strokeWidth="2.5" stroke="currentColor" fill="none"></path>
         </svg>

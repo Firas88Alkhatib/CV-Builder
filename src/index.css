@@ -1,76 +1,44 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-}
-
-.edit-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-}
-footer {
-  width: calc(45vw + 17px);
-  padding: 20px 0;
-  background-color: #eee;
-}
-
-.input {
-  width: calc(45vw - 40px);
-  margin: 30px;
-}
-.output {
-  width: calc(55vw - 40px);
-  margin: 5px 5px 5px 20px;
-  border-left: 1px solid rgb(33, 150, 243);
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
 }
 
 .footer-preview {
   display: none;
   justify-content: center;
   margin: 25px;
-}   
+}
 
 @media only screen and (max-width: 800px) {
-.footer-preview {
-  display: flex;
-}
-.output {
-  display: none;
-}
-.input {
-  width: calc(100% - 60px);
-}
-footer {
-  width: 100%;
-}
+  .footer-preview {
+    display: flex;
+  }
+  .output {
+    display: none;
+  }
 }
 
-#root{
+#root {
   height: inherit;
 }
-.App{
+.main {
   height: inherit;
 }
-.preview-mode{
+.preview-mode {
   height: inherit;
 }
-.preview-mode-template-container{
+.preview-mode-template-container {
   height: calc(100% - 50px);
 }
-

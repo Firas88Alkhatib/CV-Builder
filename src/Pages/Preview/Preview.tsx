@@ -1,13 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { updatePreviewModeAction } from '../Redux/Actions/UpdatePreviewModeAction.ts'
-import Templates from '../Templates'
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import Templates from 'Templates'
 import ApplicationState from 'Types/ApplicationState'
 
 const PreviewMode = () => {
-  const dispatch = useDispatch()
+  const history = useHistory()
   const currentTemplate = useSelector<ApplicationState, string>(state => state.currentTemplate)
   const onClickHandler = () => {
-    dispatch(updatePreviewModeAction(false))
+    history.push('/')
   }
   const CurrentTemplate = Templates[currentTemplate as keyof typeof Templates]
   return (

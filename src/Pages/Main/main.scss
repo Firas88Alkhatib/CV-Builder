@@ -1,0 +1,30 @@
+.main {
+  .edit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 45%;
+    &__content {
+      margin: 15px;
+    }
+  }
+  .output {
+    width: 55%;
+    box-sizing: border-box;
+    border-left: 1px solid rgb(33, 150, 243);
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .edit-container {
+    box-sizing: border-box;
+    width: 100% !important;
+    padding: 10px;
+    margin: 0;
+  }
+}

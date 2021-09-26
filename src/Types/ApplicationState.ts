@@ -8,7 +8,7 @@ import Skill from './Skill'
 
 class ApplicationState {
   /**
-   *
+   * Application state
    */
   constructor(
     personalDetails: PersonalDetails,
@@ -26,7 +26,6 @@ class ApplicationState {
     this.skills = skills
     this.links = links
     this.languages = languages
-    this.previewMode = previewMode
     this.currentTemplate = currentTemplate
   }
   [immerable] = true
@@ -37,8 +36,8 @@ class ApplicationState {
   links: Link[]
   languages: Language[]
   templateValues: any
-  previewMode: boolean
   currentTemplate: string
+  anonymousLogin: boolean = false
   keepData: boolean = false
 }
 export default ApplicationState

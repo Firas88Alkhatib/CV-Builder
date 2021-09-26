@@ -1,0 +1,21 @@
+.circle-color-picker {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  span {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 10px 0;
+    background: currentColor;
+    transition: transform 100ms ease 0s;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+  .selected {
+    box-shadow: currentColor 0px 0px 5px, currentColor 0px 0px 0px 5px inset;
+    background-color: white;
+  }
+}

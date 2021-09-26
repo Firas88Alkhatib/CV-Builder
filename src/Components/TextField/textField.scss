@@ -1,0 +1,22 @@
+.text-field {
+  width: 100%;
+  textarea {
+    border-radius: 3px;
+    padding: 11px 16px;
+    display: block;
+    caret-color: var(--blue);
+    background-color: var(--input-background);
+    outline: none;
+    border: 0px;
+    color: var(--black);
+    pointer-events: unset;
+    width: calc(100% - 40px);
+    margin-right: 20px;
+    transition: color 0.1s ease 0s;
+    height: 250px;
+    resize: none;
+  }
+  span {
+    color: var(--grey);
+  }
+}

@@ -1,0 +1,93 @@
+@use "sass:math";
+$circle: rgb(33, 150, 243);
+@function randomBoxShadows($times) {
+  $result: null;
+  @for $_ from 1 through $times {
+    $randomWhite: random(50) + 200;
+    $positionX: random(100) + vw;
+    $positionY: random(100) + vw;
+    $blur: random(2) + px;
+    $size: math.div(random(100), 100) + px;
+    $result: $result, $positionX $positionY $blur $size rgb($randomWhite, $randomWhite, $randomWhite);
+  }
+  @return $result;
+}
+
+.not-found {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__portal {
+    height: 50vh;
+    width: 50vh;
+    border: 20px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 50px $circle, inset 0 0 50px $circle;
+    filter: url(#turbulence) blur(0.75px);
+    margin-top: 50px;
+    animation: pulse 5s linear infinite;
+  }
+  .stars {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    border-radius: 50%;
+    // width: math.div((random(50) + 150), 100) + px;
+    width: 0.5px;
+    height: 0.5px;
+    box-shadow: randomBoxShadows(50);
+  }
+  span {
+    color: #fff;
+    font-size: 15vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-shadow: 0 0 100px #2196f3, 0 0 100px #2196f3;
+    filter: blur(0.5px);
+  }
+  p,
+  a {
+    color: #fff;
+    font-size: 50px;
+    margin: 0;
+    filter: blur(0.5px);
+  }
+  svg {
+    display: none;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 50px $circle, inset 0 0 50px $circle;
+  }
+  20% {
+    box-shadow: 0 0 60px $circle, inset 0 0 60px $circle;
+  }
+  40% {
+    box-shadow: 0 0 40px $circle, inset 0 0 40px $circle;
+  }
+  60% {
+    box-shadow: 0 0 70px $circle, inset 0 0 80px $circle;
+  }
+  80% {
+    box-shadow: 0 0 90px $circle, inset 0 0 100px $circle;
+  }
+  100% {
+    box-shadow: 0 0 50px $circle, inset 0 0 50px $circle;
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
