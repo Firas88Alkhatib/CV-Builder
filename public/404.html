@@ -7,79 +7,120 @@
 
     <style media="screen">
       body {
-        background: #eceff1;
-        color: rgba(0, 0, 0, 0.87);
-        font-family: Roboto, Helvetica, Arial, sans-serif;
+        height: 100vh;
+        width: 100vw;
         margin: 0;
-        padding: 0;
       }
-      #message {
-        background: white;
-        max-width: 360px;
-        margin: 100px auto 16px;
-        padding: 32px 24px 16px;
-        border-radius: 3px;
+      .not-found {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
-      #message h3 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-        margin: 16px 0 12px;
+      .not-found__portal {
+        height: 50vh;
+        width: 50vh;
+        border: 20px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 50px #2196f3, inset 0 0 50px #2196f3;
+        filter: url(#turbulence) blur(0.75px);
+        margin-top: 50px;
+        animation: pulse 5s linear infinite;
       }
-      #message h2 {
-        color: #ffa100;
-        font-weight: bold;
-        font-size: 16px;
-        margin: 0 0 8px;
+      .not-found .stars {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        border-radius: 50%;
+        width: 0.5px;
+        height: 0.5px;
+        box-shadow: 84vw 83vw 1px 0.54px #f3f3f3, 1vw 1vw 1px 0.19px #d0d0d0, 30vw 84vw 2px 0.44px #d1d1d1, 72vw 42vw 2px 0.69px #eeeeee,
+          39vw 82vw 1px 0.01px #cecece, 62vw 94vw 1px 0.29px #ebebeb, 54vw 79vw 2px 0.9px #f1f1f1, 75vw 5vw 2px 0.01px #ededed,
+          84vw 43vw 1px 0.24px #d5d5d5, 39vw 46vw 2px 0.36px #f3f3f3, 31vw 79vw 1px 0.53px #d0d0d0, 37vw 63vw 1px 0.56px #d7d7d7,
+          33vw 44vw 2px 0.06px #e5e5e5, 44vw 22vw 1px 0.29px #ebebeb, 50vw 77vw 1px 0.81px #f7f7f7, 40vw 90vw 2px 0.38px #e2e2e2,
+          37vw 36vw 1px 0.94px #f1f1f1, 59vw 31vw 2px 0.13px #f1f1f1, 80vw 17vw 2px 0.72px #d0d0d0, 12vw 20vw 2px 0.13px #d0d0d0,
+          69vw 83vw 1px 0.48px #eeeeee, 13vw 83vw 1px 0.71px #cccccc, 97vw 20vw 1px 0.21px #d5d5d5, 59vw 70vw 2px 0.32px #f4f4f4,
+          84vw 41vw 2px 0.65px #f9f9f9, 42vw 77vw 2px 0.34px #e9e9e9, 5vw 2vw 1px 0.64px #c9c9c9, 48vw 82vw 2px 0.61px #f8f8f8,
+          59vw 43vw 2px 0.64px #d2d2d2, 87vw 52vw 1px 0.88px #d2d2d2, 59vw 70vw 1px 0.69px #dedede, 89vw 93vw 2px 0.94px #e9e9e9,
+          57vw 100vw 1px 0.08px #e7e7e7, 92vw 99vw 1px 0.01px #cfcfcf, 65vw 93vw 1px 0.47px #ebebeb, 61vw 60vw 1px 0.95px #dadada,
+          28vw 40vw 2px 0.3px #f0f0f0, 12vw 81vw 2px 0.4px #f7f7f7, 6vw 68vw 1px 0.36px #e1e1e1, 35vw 21vw 1px 0.23px #eeeeee,
+          97vw 90vw 1px 0.39px #d2d2d2, 93vw 42vw 2px 0.64px #efefef, 6vw 54vw 1px 0.19px #cccccc, 4vw 4vw 1px 0.21px #f3f3f3,
+          56vw 61vw 2px 0.39px #dadada, 38vw 62vw 1px 0.8px #cccccc, 64vw 46vw 1px 1px #eaeaea, 28vw 83vw 2px 0.97px #f8f8f8,
+          16vw 49vw 1px 0.27px #eaeaea, 47vw 97vw 2px 0.02px #e4e4e4;
       }
-      #message h1 {
-        font-size: 22px;
-        font-weight: 300;
-        color: rgba(0, 0, 0, 0.6);
-        margin: 0 0 16px;
+      .not-found span {
+        color: #fff;
+        font-size: 15vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        text-shadow: 0 0 100px #2196f3, 0 0 100px #2196f3;
+        filter: blur(0.5px);
       }
-      #message p {
-        line-height: 140%;
-        margin: 16px 0 24px;
-        font-size: 14px;
+      .not-found p,
+      .not-found a {
+        color: #fff;
+        font-size: 50px;
+        margin: 0;
+        filter: blur(0.5px);
       }
-      #message a {
-        display: block;
-        text-align: center;
-        background: #039be5;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: white;
-        padding: 16px;
-        border-radius: 4px;
+      .not-found svg {
+        display: none;
       }
-      #message,
-      #message a {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      }
-      #load {
-        color: rgba(0, 0, 0, 0.4);
-        text-align: center;
-        font-size: 13px;
-      }
-      @media (max-width: 600px) {
-        body,
-        #message {
-          margin-top: 0;
-          background: white;
-          box-shadow: none;
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 50px #2196f3, inset 0 0 50px #2196f3;
         }
-        body {
-          border-top: 16px solid #ffa100;
+        20% {
+          box-shadow: 0 0 60px #2196f3, inset 0 0 60px #2196f3;
+        }
+        40% {
+          box-shadow: 0 0 40px #2196f3, inset 0 0 40px #2196f3;
+        }
+        60% {
+          box-shadow: 0 0 70px #2196f3, inset 0 0 80px #2196f3;
+        }
+        80% {
+          box-shadow: 0 0 90px #2196f3, inset 0 0 100px #2196f3;
+        }
+        100% {
+          box-shadow: 0 0 50px #2196f3, inset 0 0 50px #2196f3;
+        }
+      }
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
         }
       }
     </style>
   </head>
   <body>
-    <div id="message">
-      <h2>404</h2>
-      <h1>Page Not Found</h1>
-      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
+    <div class="not-found">
+      <div class="stars"></div>
+      <p>Oops! Page not found</p>
+      <a href="./">Back to the main page</a>
+      <div>
+        <div class="not-found__portal">
+          <span>404</span>
+        </div>
+      </div>
+      <svg>
+        <filter id="turbulence">
+          <feTurbulence baseFrequency="0.01" numOctaves="5">
+            <animate attributeName="baseFrequency" dur="60s" values="0.02;0.01;0.02" repeatCount="indefinite" />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" scale="40" />
+        </filter>
+      </svg>
     </div>
   </body>
 </html>
