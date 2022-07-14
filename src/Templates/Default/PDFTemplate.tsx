@@ -1,7 +1,9 @@
-import { Font, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
+import { useSelector } from 'react-redux'
+import { Font, Page, Text, View, Document } from '@react-pdf/renderer'
 import ApplicationState from '../../Types/ApplicationState'
 import InfoSection from './Components/InfoSection'
 import Details from './Components/Details'
+import { styles } from './templateStyles'
 
 //register font
 // Font.register({
@@ -15,63 +17,19 @@ import Details from './Components/Details'
 //   src: "fonts/noto-serif.ttf",
 // });
 Font.registerHyphenationCallback(word => [word])
-// Create styles
-const styles = StyleSheet.create({
-  page: {
-    display: 'flex',
-    flexDirection: 'row',
-    paddingTop: 35,
-    paddingBottom: 30
-  },
-  section: {
-    marginVertical: 10
-  },
-  infos: {
-    flex: 70,
-    backgroundColor: '#ffffff',
-    fontSize: 12,
-    paddingHorizontal: 35
-  },
-  head: {
-    fontSize: 17,
-    marginBottom: 5,
-    fontWeight: 'bold'
-  },
-
-  description: {
-    lineHeight: '1.3',
-    marginLeft: 10,
-    color: '#383838',
-    textAlign: 'justify'
-  },
-  footer: {
-    position: 'absolute',
-    display: 'flex',
-    flexDirection: 'row',
-    fontSize: 12,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 31
-  },
-  header: {
-    position: 'absolute',
-    display: 'flex',
-    flexDirection: 'row',
-    fontSize: 12,
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 36
-  }
-})
 
 const PDFTemplate = ({ state, color }: { color: string; state: ApplicationState }) => {
   return (
     <Document>
       <Page size="A4" style={styles.page} wrap>
         {state.personalDetails && (
-          <Details color={color} languages={state.languages} personalDetails={state.personalDetails} skills={state.skills} links={state.links}></Details>
+          <Details
+            color={color}
+            languages={state.languages}
+            personalDetails={state.personalDetails}
+            skills={state.skills}
+            links={state.links}
+          ></Details>
         )}
         <View style={styles.infos}>
           <View style={styles.section}>
