@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import { Font, Page, Text, View, Document } from '@react-pdf/renderer'
 import ApplicationState from '../../Types/ApplicationState'
 import InfoSection from './Components/InfoSection'
