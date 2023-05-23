@@ -3,25 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-pdf/renderer": "^1.6.16",
-    "firebase": "^9.1.0",
+    "@react-pdf/renderer": "^3.1.9",
+    "firebase": "^9.21.0",
     "immer": "^9.0.6",
-    "react": "^17.0.2",
-    "react-datepicker": "^3.8.0",
-    "react-dom": "^17.0.2",
-    "react-pdf": "^5.2.0",
+    "react": "^18.2.0",
+    "react-datepicker": "^4.11.0",
+    "react-dom": "^18.2.0",
+    "react-pdf": "^6.2.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
-    "react-select": "^4.3.0",
+    "react-select": "^5.7.3",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [
@@ -41,15 +40,22 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^12.20.11",
-    "@types/react": "^17.0.4",
+    "@types/react": "^18.0.28",
     "@types/react-datepicker": "^3.1.8",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-pdf": "^5.0.5",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-pdf": "^6.2.0",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.8",
-    "@types/react-select": "^4.0.15",
-    "sass": "^1.42.1",
-    "typescript": "^4.4.3"
+    "@types/react-select": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "sass": "^1.62.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }

@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app'
 import firebaseConfig from 'Services/firebaseService/firebaseConfig'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import store from './Redux/Store'
 
@@ -13,18 +13,12 @@ import './index.css'
 const render = () => {
   // Initialize Firebase
   initializeApp(firebaseConfig)
-  return ReactDOM.render(
+  return ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Provider store={store}>
       <React.StrictMode>
         <Routes />
       </React.StrictMode>
-    </Provider>,
-    document.getElementById('root')
+    </Provider>
   )
 }
 render()
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-//reportWebVitals()

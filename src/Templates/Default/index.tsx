@@ -3,7 +3,7 @@ import { PDFViewer } from '@react-pdf/renderer'
 import PDFTemplate from './PDFTemplate'
 import actions from '../../Redux/Actions'
 import { BlobProvider, PDFDownloadLink } from '@react-pdf/renderer'
-import { Document, Page } from 'react-pdf/dist/umd/entry.webpack'
+import { Document, Page } from 'react-pdf'
 import { useState } from 'react'
 import Button from '../../Components/Button'
 import ApplicationState from '../../Types/ApplicationState'
@@ -21,16 +21,19 @@ const styles = {
 
 const Viewer = ({ isMobileView }: { isMobileView?: boolean }) => {
   const dispatch = useDispatch()
+  const [numPages, setNumPages] = useState(1)
   const state = useSelector<ApplicationState, ApplicationState>(state => state)
+
   const onChangeHandler = (color: string) => {
     dispatch({ type: actions.UPDATE_TEMPLATE_VALUES, payload: { color } })
   }
-  const [numPages, setNumPages] = useState(1)
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages)
   }
+
   const color = state.templateValues?.color || colors[0]
+
   const mobileView = (
     <div className="default-template-mobile-view" style={styles.mobileView}>
       <BlobProvider document={<PDFTemplate state={state} color={color} />}>
